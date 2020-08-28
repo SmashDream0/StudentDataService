@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using StudentDataService.Entity.Context;
 
-namespace StudentDataService.Test.Fabric
+namespace StudentDataService.Test.Factory
 {
     public class MockFactory
     {

@@ -1,6 +1,6 @@
 ﻿using StudentDataService.Entity.POCO;
 using StudentDataService.Entity.Repository.Group;
-using StudentDataService.Test.Fabric;
+using StudentDataService.Test.Factory;
 using System;
 using System.Collections.Generic;
 using System.Linq;

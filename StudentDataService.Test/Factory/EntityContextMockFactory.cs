@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using StudentDataService.Entity.Context;
 
-namespace StudentDataService.Test.Fabric
+namespace StudentDataService.Test.Factory
 {
     public class EntityContextMockFactory
     {
