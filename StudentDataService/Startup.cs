@@ -61,6 +61,8 @@ namespace StudentDataService
                };
            });
 
+            services.AddSwaggerGen();
+
             services.Configure<AuthConfig>(Configuration.GetSection("Jwt"));
             var connectionStr = Configuration.GetConnectionString("DefaultConnection");
 
@@ -97,6 +99,10 @@ namespace StudentDataService
             {
                 endpoints.MapControllers();
             });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            { c.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1"); });
         }
     }
 }
