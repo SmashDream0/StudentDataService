@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentDataService.Entity.Specification.Student
 {
-    public class ByGroupName : Specification<POCO.Student>
+    public class ByGroupName : Specification<POCO.StudentEntity>
     {
         public ByGroupName(string groupName) : base(x => x.StudentToGroups.Any(g => g.Group.Name == groupName))
         { }

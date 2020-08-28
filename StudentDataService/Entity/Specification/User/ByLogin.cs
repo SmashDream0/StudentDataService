@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentDataService.Entity.Specification.User
 {
-    public class ByLogin : Specification<POCO.User>
+    public class ByLogin : Specification<POCO.UserEntity>
     {
         public ByLogin(string login) : base(x => x.Login == login)
         { }

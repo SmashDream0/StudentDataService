@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace StudentDataService.Entity.POCO
 {
-    [Table("tbl_" + nameof(Student))]
-    public class Student
+    [Table("tbl_" + nameof(StudentEntity))]
+    public class StudentEntity
     {
         #region Свойства
 
@@ -68,8 +68,8 @@ namespace StudentDataService.Entity.POCO
         /// <summary>
         /// Список связанных групп
         /// </summary>
-        [InverseProperty(nameof(StudentToGroup.Student))]
-        public virtual ICollection<StudentToGroup> StudentToGroups { get; set; }
+        [InverseProperty(nameof(StudentToGroupEntity.Student))]
+        public virtual ICollection<StudentToGroupEntity> StudentToGroups { get; set; }
 
         #endregion
     }

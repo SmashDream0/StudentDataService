@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StudentDataService.Entity.Specification.Student
 {
-    public class BySex : Specification<POCO.Student>
+    public class BySex : Specification<POCO.StudentEntity>
     {
         public BySex(ESex sex) : base(x => x.Sex == sex)
         { }

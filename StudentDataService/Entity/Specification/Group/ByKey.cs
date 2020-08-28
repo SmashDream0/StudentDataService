@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentDataService.Entity.Specification.Group
 {
-    public class ByKey : Specification<POCO.Group>
+    public class ByKey : Specification<POCO.GroupEntity>
     {
         public ByKey(Int32 key) : base(x => x.Key == key)
         { }

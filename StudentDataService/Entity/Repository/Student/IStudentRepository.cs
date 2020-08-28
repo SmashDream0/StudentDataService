@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StudentDataService.Entity.Repository.Student
 {
-    public interface IStudentRepository : IBaseRepository<Int32, POCO.Student>
+    public interface IStudentRepository : IBaseRepository<Int32, POCO.StudentEntity>
     {
         IEnumerable<StudentInfo> Find(StudentFilter filter);
     }

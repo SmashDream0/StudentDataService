@@ -6,10 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace StudentDataService.Entity.Repository.Group
 {
-    public class GroupRepository : Base.BaseRepository<Int32, POCO.Group>, IGroupRepository
+    public class GroupRepository : Base.BaseRepository<Int32, GroupEntity>, IGroupRepository
     {
         public GroupRepository(IEntityContext context) : base(context)
         { }
@@ -21,15 +22,17 @@ namespace StudentDataService.Entity.Repository.Group
         /// <returns></returns>
         public IEnumerable<GroupInfo> Find(string name)
         {
-            return Find(new ByName(name))
-                        .Select(x => new GroupInfo()
-                        {
-                            Key = x.Key,
-                            Name = x.Name,
-                            StudentCount = x.Students.Count()
-                        });
+            return Context.Set<GroupEntity>()
+                          .Where(new ByName(name))
+                          .Select(x => new GroupInfo()
+                          {
+                              Key = x.Key,
+                              Name = x.Name,
+                              StudentCount = x.Students.Count,
+                          }).ToArray();
         }
-        public override POCO.Group FindByKey(int key)
+
+        public override GroupEntity FindByKey(int key)
         { return SingleOrDefault(new ByKey(key)); }
     }
 }

@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace StudentDataService.Entity.Repository.User
 {
-    public interface IUserRepository : IBaseRepository<Int32, POCO.User>
+    public interface IUserRepository : IBaseRepository<Int32, POCO.UserEntity>
     {
-        POCO.User FindByLogin(string login);
+        POCO.UserEntity FindByLogin(string login);
     }
 }

@@ -47,7 +47,7 @@ namespace StudentDataService.Controllers
             return Json(response);
         }
 
-        private string GenerateJwtToken(Entity.POCO.User user)
+        private string GenerateJwtToken(Entity.POCO.UserEntity user)
         {
             // generate token that is valid for 7 days
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -62,7 +62,7 @@ namespace StudentDataService.Controllers
             return tokenHandler.WriteToken(token);
         }
 
-        private Entity.POCO.User GetUser(string login, string password)
+        private Entity.POCO.UserEntity GetUser(string login, string password)
         {
             var user = _userRepository.FindByLogin(login);
 

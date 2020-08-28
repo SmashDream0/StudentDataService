@@ -66,7 +66,7 @@ namespace StudentDataService.Controllers
 
         public override int Insert(StudentCRUID model)
         {
-            var student = new Entity.POCO.Student()
+            var student = new Entity.POCO.StudentEntity()
             { 
                 Code = model.Code,
                 Firstname = model.Firstname,
@@ -150,7 +150,7 @@ namespace StudentDataService.Controllers
 
         public override void Remove(int key)
         {
-            _studentRepository.Remove(new Entity.POCO.Student() { Key = key });
+            _studentRepository.Remove(new Entity.POCO.StudentEntity() { Key = key });
             _studentRepository.SaveChanges();
         }
     }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StudentDataService.Entity.Specification.Student
 {
-    public class ByKey : Specification<POCO.Student>
+    public class ByKey : Specification<POCO.StudentEntity>
     {
         public ByKey(Int32 key) : base(x => x.Key == key)
         { }

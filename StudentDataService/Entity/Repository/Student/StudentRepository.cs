@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace StudentDataService.Entity.Repository.Student
 {
-    public class StudentRepository : Base.BaseRepository<Int32, POCO.Student>, IStudentRepository
+    public class StudentRepository : Base.BaseRepository<Int32, POCO.StudentEntity>, IStudentRepository
     {
         public StudentRepository(IEntityContext context) : base(context)
         { }
@@ -24,7 +24,7 @@ namespace StudentDataService.Entity.Repository.Student
         /// <returns></returns>
         public IEnumerable<StudentInfo> Find(StudentFilter filter)
         {
-            ISpecification<POCO.Student> specification = null;
+            ISpecification<POCO.StudentEntity> specification = null;
 
             if (!String.IsNullOrEmpty(filter.Firstname))
             { specification ??= new ByFirstname(filter.Firstname); }
@@ -41,7 +41,7 @@ namespace StudentDataService.Entity.Repository.Student
             if (filter.Sex.HasValue)
             { specification ??= new BySex(filter.Sex.Value); }
 
-            var query = Context.Set<POCO.Student>().Include(x => x.StudentToGroups).Where(x => true);
+            var query = Context.Set<POCO.StudentEntity>().Include(x => x.StudentToGroups).Where(x => true);
 
             if (specification != null)
             { query = query.Where(specification.Predicate); }
@@ -53,7 +53,7 @@ namespace StudentDataService.Entity.Repository.Student
                 if (filter.Pagination.Index < 0)
                 { throw new ArgumentOutOfRangeException($"Page index({filter.Pagination.Index}) less then 0"); }
 
-                query = query.Skip(((filter.Pagination.Index + 1) * filter.Pagination.Size))
+                query = query.Skip(filter.Pagination.Index * filter.Pagination.Size)
                              .Take(filter.Pagination.Size);
             }
 
@@ -69,7 +69,7 @@ namespace StudentDataService.Entity.Repository.Student
             }).ToArray();
         }
 
-        public override POCO.Student FindByKey(int key)
+        public override POCO.StudentEntity FindByKey(int key)
         { return SingleOrDefault(new ByKey(key)); }
     }
 }

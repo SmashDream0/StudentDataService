@@ -17,7 +17,6 @@ namespace StudentDataService.Entity.Context
         public EntityContext(DbContextOptions options) : base(options)
         {
             Database.EnsureCreated();
-            Database.Migrate();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -85,9 +84,9 @@ namespace StudentDataService.Entity.Context
             return propInfo.GetCustomAttributes<UniqueKeyAttribute>();
         }
 
-        public DbSet<User> Users { get; set; }
-        public DbSet<Student> Students { get; set; }
-        public DbSet<Group> Groups { get; set; }
-        public DbSet<StudentToGroup> StudentToGroup { get; set; }
+        public DbSet<UserEntity> Users { get; set; }
+        public DbSet<StudentEntity> Students { get; set; }
+        public DbSet<GroupEntity> Groups { get; set; }
+        public DbSet<StudentToGroupEntity> StudentToGroup { get; set; }
     }
 }

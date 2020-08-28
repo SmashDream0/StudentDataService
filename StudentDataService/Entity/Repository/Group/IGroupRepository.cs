@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StudentDataService.Entity.Repository.Group
 {
-    public interface IGroupRepository : IBaseRepository<Int32, POCO.Group>
+    public interface IGroupRepository : IBaseRepository<Int32, POCO.GroupEntity>
     {
         IEnumerable<GroupInfo> Find(string name);
     }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace StudentDataService.Entity.POCO
 {
     [Table("User")]
-    public class User
+    public class UserEntity
     {
         [Key]
         [Column("US_Key")]

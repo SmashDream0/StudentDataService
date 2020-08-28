@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace StudentDataService.Entity.POCO
 {
-    [Table("tbl_" + nameof(StudentToGroup))]
-    public class StudentToGroup
+    [Table("tbl_" + nameof(StudentToGroupEntity))]
+    public class StudentToGroupEntity
     {
         [Key]
         [Column("SG_Key")]
@@ -34,10 +34,10 @@ namespace StudentDataService.Entity.POCO
 
 
         [ForeignKey(nameof(GroupKey))]
-        public virtual Group Group { get; set; }
+        public virtual GroupEntity Group { get; set; }
 
 
         [ForeignKey(nameof(StudentKey))]
-        public virtual Student Student { get; set; }
+        public virtual StudentEntity Student { get; set; }
     }
 }

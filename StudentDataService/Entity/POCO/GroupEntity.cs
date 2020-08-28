@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace StudentDataService.Entity.POCO
 {
-    [Table("tbl_" + nameof(Group))]
-    public class Group
+    [Table("tbl_" + nameof(GroupEntity))]
+    public class GroupEntity
     {
         [Key]
         [Column("GP_Key")]
@@ -27,7 +27,7 @@ namespace StudentDataService.Entity.POCO
         /// <summary>
         /// Список связанных студентов
         /// </summary>
-        [InverseProperty(nameof(StudentToGroup.Group))]
-        public virtual ICollection<StudentToGroup> Students { get; set; }
+        [InverseProperty(nameof(StudentToGroupEntity.Group))]
+        public virtual ICollection<StudentToGroupEntity> Students { get; set; }
     }
 }

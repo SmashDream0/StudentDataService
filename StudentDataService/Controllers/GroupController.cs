@@ -49,13 +49,13 @@ namespace StudentDataService.Controllers
         [Authorize(Roles = "admin")]
         public void JoinGroupStudent([FromBody]JoinGroupStudent join)
         {
-            _studentToGroupRepository.Add(new Entity.POCO.StudentToGroup() { GroupKey = join.GroupKey, StudentKey = join.StudentKey });
+            _studentToGroupRepository.Add(new Entity.POCO.StudentToGroupEntity() { GroupKey = join.GroupKey, StudentKey = join.StudentKey });
             _studentToGroupRepository.SaveChanges();
         }
 
         public override int Insert([FromQuery] String name)
         {
-            var group = new Entity.POCO.Group()
+            var group = new Entity.POCO.GroupEntity()
             { 
                 Name = name,
             };
@@ -105,7 +105,7 @@ namespace StudentDataService.Controllers
 
         public override void Remove(int key)
         {
-            _groupRepository.Remove(new Entity.POCO.Group() { Key = key });
+            _groupRepository.Remove(new Entity.POCO.GroupEntity() { Key = key });
             _groupRepository.SaveChanges();
         }
     }

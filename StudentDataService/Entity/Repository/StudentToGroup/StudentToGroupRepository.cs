@@ -12,12 +12,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace StudentDataService.Entity.Repository.Student
 {
-    public class StudentToGroupRepository : Base.BaseRepository<Int32, POCO.StudentToGroup>, IStudentToGroupRepository
+    public class StudentToGroupRepository : Base.BaseRepository<Int32, POCO.StudentToGroupEntity>, IStudentToGroupRepository
     {
         public StudentToGroupRepository(IEntityContext context) : base(context)
         { }
 
-        public override POCO.StudentToGroup FindByKey(int key)
+        public override POCO.StudentToGroupEntity FindByKey(int key)
         { return SingleOrDefault(new ByKey(key)); }
     }
 }

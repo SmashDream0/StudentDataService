@@ -8,6 +8,6 @@ using System.Threading.Tasks;
 
 namespace StudentDataService.Entity.Repository.Student
 {
-    public interface IStudentToGroupRepository: IBaseRepository<Int32, POCO.StudentToGroup>
+    public interface IStudentToGroupRepository: IBaseRepository<Int32, POCO.StudentToGroupEntity>
     { }
 }
