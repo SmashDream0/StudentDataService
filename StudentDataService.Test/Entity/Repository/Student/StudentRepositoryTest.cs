@@ -207,9 +207,7 @@ namespace StudentDataService.Test.Entity.Repository.Student
         {
             var context = new MockFactory().GetContextSeparate();
 
-            var target = new StudentEntity() { Key = 1 };
-
-            context.Set<StudentEntity>().AddRange(new[] { target, new StudentEntity() { Key = 2 }, new StudentEntity() { Key = 3 } });
+            context.Set<StudentEntity>().AddRange(new[] { new StudentEntity() { Key = 1 }, new StudentEntity() { Key = 2 }, new StudentEntity() { Key = 3 } });
 
             context.Set<GroupEntity>().AddRange(new[] { new GroupEntity() { Key = 1, Name = "1" }, new GroupEntity() { Key = 2, Name = "2" } });
 
