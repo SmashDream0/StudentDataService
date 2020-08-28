@@ -20,9 +20,9 @@ namespace StudentDataService.Test.Entity.Repository.Student
         {
             var context = new MockFactory().GetContextSeparate();
 
-            var target = new StudentEntity() { Key = 1 };
+            var target = new StudentEntity();
 
-            context.Set<StudentEntity>().AddRange(new[] { target, new StudentEntity() { Key = 2 } });
+            context.Set<StudentEntity>().AddRange(new[] { target, new StudentEntity() });
             context.SaveChanges();
 
             var repository = new StudentRepository(context);
@@ -40,9 +40,9 @@ namespace StudentDataService.Test.Entity.Repository.Student
         {
             var context = new MockFactory().GetContextSeparate();
 
-            var target = new StudentEntity() { Key = 1 };
+            var target = new StudentEntity();
 
-            context.Set<StudentEntity>().AddRange(new[] { target, new StudentEntity() { Key = 2 } });
+            context.Set<StudentEntity>().AddRange(new[] { target, new StudentEntity() });
             context.SaveChanges();
 
             var repository = new StudentRepository(context);
